@@ -105,3 +105,32 @@ Hence we conclude that $\frac{1}{x_n} \to 1/2$.
 
 
 
+### 2.3.12 A typical task in analysis is to decipher whether a property possessed by every term in a convergent sequence is necessarily inherited by the limit. Assume $(a_n) \to a$, and determine the validity of each claim. Try to produce a counterexample for any that are false.
+
+#### (a) If every $a_n$ is an upper bound for a set $B$, then $a$ is also an upper bound for $B$.
+
+We want to show that the statement is true. Assume towards contradiction that $a$ is not an upper bound of $B$. Then there exists some $b \in B$ such that $b > a$.
+
+Since $(a_n) \to a$, there exists $N \in \mathbb{N}$ such that $|a_n - a| < b-a$ for all $n \geq N$. 
+
+Thus we have $a - (b-a) < a_N < a + (b-a)$, and $a_N < b$. So $a_N$ is not an upper bound of $B$. This contradicts the hypothesis that every $a_n$ is an upper bound of $B$.
+
+
+#### (b) If every $a_n$ is in the complement of the interval (0, 1), then $a$ is also in the complement of (0, 1).
+
+We want to show that the statement is true. Assume towards contradiction that $a \in (0, 1)$.
+
+Let $\epsilon = \min \\{a, 1-a\\}$.
+
+Since $(a_n) \to a$, there exists $N \in mathbb{N}$ such that $|a_n - a| < \epsilon$ for all $n \geq N$. Then we have $a - \epsilon < a_n < a + \epsilon$. It follows that
+
+$$a - a \leq a - \epsilon < a_n < a + \epsilon \leq a + (1-a)$$
+
+Thus $0 < a_n < 1$ for all $n \geq N$. This contradicts the hypothesis that every element is in the complement of (0, 1).
+
+
+#### (c) If every $a_n$ is rational, then $a$ is rational.
+
+The statement is false. 
+
+By 1.4.3, for $n \in \mathbb{N}$, there exists a rational number $q_n$ between two real numbers $\sqrt{2} < q_n < \sqft{2} + \frac{1}{n}$. Thus $(q_n) \to \sqft{2}$, but $\sqrt{2}$ is not rational.

@@ -65,6 +65,46 @@ The set is closed. The series $\sum 1/n$ diverges so it does not have any limit 
 
 ## Exercises
 
+### 3.3.2 Decide which of the following sets are compact. For those that are not compact, show how Definition 3.3.1 breaks down. In other words, give an example of a sequence contained in the given set that does not possess a subsequence converging to a limit in the set.
+
+#### (a) $\mathbb{N}$
+
+Not compact. 
+
+The sequence $(a_n)$ where $a_n = n, n \in \mathbb{N}$ does not have a convergent subsequence.
+
+
+#### (b) $\mathbb{Q} \cap [0, 1]$
+
+Not compact.
+
+Since $\mathbb{Q}$ is dense in $\mathbb{R}$, consider a sequence in $\mathbb{Q} \cap [0, 1]$ that converges to $\sqrt{2}/2$. The limit is not contained in the set.
+
+
+#### (c) The Cantor set
+
+The Cantor set is bounded above by 1 and bounded below by 0. The Cantor set is an arbitrary intersection of closed sets, thus it is closed. 
+
+Hence it is compact.
+
+
+#### (d) $\\{1 + 1/2^2 + 1/3^2 + ... + 1/n^2: n \in \mathbb{N}\\}$
+
+Not compact.
+
+The partial sum converges to $\pi^2/6$ which is not in the set, because the partial sum is strictly increasing. Take any subsequence of $s_n$, it converges to $\pi^2/6$ which is not in the set.
+
+
+#### (e) $\\{1, 1/2, 2/3, 3/4, ...\\}$
+
+The set is bounded below by 0 and bounded above by 1.
+
+The set has one limit point which is 1, and it is contained in the set. Thus it is closed.
+
+Hence it is compact.
+
+
+
 ### 3.3.3 Prove the converse of Theorem 3.3.4 by showing that if a set $K \subseteq \mathbb{R}$ is closed and bounded, then it is compact.
 
 Let $(a_n)$ be a sequence in $K$. Since $K$ is bounded, the sequence $(a_n)$ is bounded.
@@ -277,4 +317,30 @@ Then $[-M, M] \subseteq (\cup_{\lambda \in \Lambda} O_\lambda) \cup K^c$.
 Then from part (b), $[-M, M]$ has a finite subcover $O_{\lambda_1}, ..., O_{\lambda_n}, K^c$.
 
 Then $K$ has a finite subcover $O_{\lambda_1}, ..., O_{\lambda_n}$.
+
+
+
+### 3.3.11 Consider each of the sets listed in Exercise 3.3.2. For each one that is not compact, find an open cover for which there is no finite subcover.
+
+### (a) $\mathbb{N}$
+
+Consider the open cover $\cup_{n \in \mathbb{N}} V_{1/2}(n)$. It is an open cover of $\mathbb{N}$ but there is no finite subcover that covers $\mathbb{N}$.
+
+
+#### (b) $\mathbb{Q} \cap [0, 1]$
+
+Let $a = \frac{\sqrt{2}}{2}$. Consider the open cover $\cup_{n \in \mathbb{N} (-1, a - \frac{1}{n}) \cup (a + \frac{1}{n}, 2)$. 
+
+For any $x \in \mathbb{Q} \cap [0, 1]$, $x < a$ or $x > a$. There exists $n \in \mathbb{N}$ such that $x < a - \frac{1}{n}$ or $x > a + \frac{1}{n}$. Thus it is an open cover of $\mathbb{Q} \cap [0, 1]$.
+
+Note that this open has no finite subcover. Given a finite subcover, let $N$ be the largest index. The union is $(-1, a - \frac{1}{N}) \cup (a + \frac{1}{N}, 2)$. Since $\mathbb{Q}$ is dense, there exists a rational number in $(a - \frac{1}{N}, a + \frac{1}{N})$, which is not in the subcover.
+
+
+#### (c) $\\{1 + 1/2^2 + 1/3^2 + ... + 1/n^2: n \in \mathbb{N} \\}$
+
+Consider the partial sum $s_n = 1 + 1/2^2 + ... + 1/n^2$ and the open cover $\cup_{n \in \mathbb{N}} (0, s_n)$.
+
+The partial sum is strictly increasing. For any $s_n$ in the set, we have $s_n \in (0, s_{n+1})$. Then $\cup_{n \in \mathbb{N}} (0, s_n)$ is an open cover of the set.
+
+Note that this open cover has no finite subcover. Consider $(0, s_{\lambda_1}), ..., (0, s_{\lambda_n})$. Take $M = \max \\{s_{\lambda_1}, ..., s_{\lambda_n}\\}$. There exists $s_k$ such that $s_k > M$ which is outside the subcover.
 

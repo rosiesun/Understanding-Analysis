@@ -116,6 +116,45 @@ Thus $\overline{K \cap F^c}$ is compact.
 
 
 
+### 3.3.5 Decide whether the following propositions are true or false. If the claim is valid, supply a short proof, and if the claim is false, provide a counterexample.
+
+#### (a) The arbitrary intersection of compact sets is compact.
+
+We want to show the statement is true.
+
+By theorem 3.3.4 compact sets are closed and bounded. 
+
+By theorem 3.2.14 the intersection of an arbitrary collection of closed sets is closed. The intersection of compacts sets are also bounded. 
+
+Thus the arbitrary intersection of compact sets is compact.
+
+
+#### (b) The arbitrary union of compact sets is compact.
+
+We want to show the statement is false.
+
+Consider $\cup_{n \in \mathbb{N}} [0, n]$. Each closed interval is closed and bounded. However the arbitrary union is unbounded. Thus is it not compact.
+
+
+#### (c) Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact.
+
+We want to show the statement is false.
+
+Consider $A = (0, 2)$ and $K = [1, 3]$. Then $A \cap K = [1, 2)$ which is not closed, thus not compact.
+
+
+#### (d) If $F_1 \supseteq F_2 \supseteq ...$ is a nested sequence of nonempty closed sets, then the intersection $\cap_{n=1}^\infty F_n \neq \emptyset$.
+
+We want to show that the statement is false.
+
+Consider $\cap_{n \in \mathbb{N}} [n, \infty)$. Each interval $[n, \infty)$ is closed because its complement $(\infty, n)$ is open.
+
+$F_1 \supset F_2 \supseteq ...$ since each interval removes one number at a time.
+
+By the archimedian property, for any $x \in \mathbb{R}$, there exists $n \in \mathbb{N}$ such that $n > x$. Thus $x \notin \cap_{n \in \mathbb{N}} [n, \infty)$. Hence $\cap_{n \in \mathbb{N}} [n, \infty) = \emptyset$.
+
+
+
 ### 3.3.8 Let $K$ and $L$ be nonempty compact sets, and define $d = \inf \\{|x-y|: x \in K, y \in L\\}$. 
 
 #### (a) If $K$ and $L$ are disjoint, show $d > 0$ and that $d = |x_0 - y_0|$ for some $x_0 \in K$ and $y_0 \in L$.
@@ -151,8 +190,91 @@ We have $|n + \frac{1}{n} - n| = \frac{1}{n}$. Thus $d < \frac{1}{n}$ for all $n
 
 #### (a) Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq ...$ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covereed and $\lim |I_n| = 0$.
 
+Bisect $I_0$ into two closed intervals $I_L$ and $I_R$. Consider $I_L \cap K$ and $I_R \cap K$. If both sets have a finite subcover, then $K$ has a finite subcover which contradicts the hypothesis. Thus at least one of $I_L \cap K$ and $I_R \cap K$ do not have a finite subcover. Pick that half and call it $I_1$. By construction $I_1 \subset I_0$.
+
+Bisect $I_1$ into two closed intervals $I_{1L}$ and $I_{1R}$. Consider $I_{1L} \cap K$ and $I_{1R} \cap K$. If both sets have a finite subcover, then $I_1 \cap K$ has a finite subcover, which contradicts the previous step. Thus at least one of $I_{1L} \cap K$ and $I_{1R}$ do not have a finite subcover. Pick that half and call it $I_2$. By construction $I_2 \subset I_1 \subset I_0$.
+
+Continuing in this fashion, we constructed $I_0 \supseteq I_1 \supseteq I_2 \supseteq ...$ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered.
+
+Since in each step we bisect the interval, $|I_n| = \frac{1}{2^n} |I_0|$. Thus $\lim |I_n| = 0$.
+
+
+#### (b) Argue that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
+
+Since $K$ is compact and $I_n$ is closed, by exercise 3.3.4, $I_n \cap K$ is compact. 
+
+By the nested compact set property 3.3.5, $\cap_{n \in \mathbb{N}} (I_n \cap K) \noteq \emptyset$. Thus there exists some $x \in K$ such that $x \in I_n$ for all $n$.
+
+
+#### (c) Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Explain how this leads to the desired contradiction.
+
+Since $x \in \O_{\lambda_0}$ and $O_{\lambda_0}$ is open, there exists a neighborhood $V_\epsilon(x) \subseteq O_{\lambda_0}$.
+
+Since $|I_n| \to 0$, there exists some $m \in \mathbb{N}$ such that for all $n \geq m$, $|I_n| < \epsilon$. 
+
+Suppose $y \in I_n$, $n \geq m$. Since $x \in I_n$ for all $n$, we have $|y - x| < \epsilon$. Thus $y \in V_\epsilon(x)$. Hence we have have $I_n \subseteq V_\epsilon(x)$ for all $n \geq m$.
+
+Then we have for all $n \geq m$,
+
+$$I_n \cap K \subseteq I_n \subseteq V_\epsilon(x) \subseteq O_{\lambda_0}$$
+
+So $I_n \cap K$ has a finite subcover (a single subcover $O_{\lambda_0}$), which contradicts the assumption that $I_n \cap K$ cannot be finitely covered for all $n$.
 
 
 
-### 3.3.10
+### 3.3.10 Here is an alternate proof to the one given in Exercise 3.3.9 for the final implication in the Heine-Borel Theorem. Consider the special case where $K$ is a closed interval. Let $\\{O_\lambda: \lambda \in \Lambda \\}$ be an open cover for $[a, b]$ and define $S$ to be the set of all $x \in [a, b]$ such that $[a, x]$ has a finite subcover from $\\{O_\lambda: \lambda \in \Lambda\\}$. 
+
+#### (a) Argue that $S$ is nonempty and bounded, and thus $s = \sup S$ exists.
+
+Consider $[a, a] = \\{a\\}$. Since $a \in [a, b]$, $a$ is covered by some open set $O_{\lambda_0}$ in the collection. Thus $a \in S$ and $S$ is not empty.
+
+Since $S \subseteq [a, b]$, $S$ has an upper bound $b$. Thus $s = \sup S$ exists.
+
+
+#### (b) Now show $s = b$, which implies $[a, b]$ has a finite subcover.
+
+Assume towards contradiction that $s < b$. 
+
+Since $s \in [a, b]$ which is covered $\cup_{\lambda \in \Lambda} O_\lambda$, $s$ is covered by some open set in this collection $O_{\lambda_0}$.
+
+Since $O_{\lambda_0}$ is open, and $s \in O_{\lambda_0}$, there exists an open neighborhood $V_\delta(s) \subseteq O_{\lambda_0}$ for some $\delta > 0$. Let $\epsilon = \min \\{\delta, b-s\\}$.
+
+Since $s = \sup S$, there exists some $x \in S$ such that $s - \epsilon < x \leq s$. Since $x \in S$, $[a, x]$ has a finite subcover $O_{\lambda_1}, ..., O_{\lambda_n}$. 
+
+Note that $|x - s| < \epsilon$. Thus $x \in V_\epsilon(s)$.
+
+Note that $s + \frac{\epsilon}{2} \in V_\epsilon(s)$. By construction, we have $s + \frac{\epsilon}{2} \leq s + \frac{b-s}{2} < b$.
+
+Since both $x$ and $s + \frac{\epsilon}{2}$ are in $V_\epsilon(s)$, it follows that the interval 
+
+$$[x, s + \frac{\epsilon}{2}] \subseteq V_\epsilon(s) \subseteq O_{\lambda_0}$$
+
+Since $O_{\lambda_1}, ..., O_{\lambda_n}$ covers $[a, x]$ and $O_{\lambda_0}$ covers $[x, s + \frac{\epsilon}{2}]$ and $[a, s + \frac{\epsilon}{2}] = [a, x] \cup [x, s + \frac{\epsilon}{2}]$, it follows that $O_{\lambda_0}, O_{\lambda_1}, ..., O_{\lambda_n}$ covers $[a, s + \frac{\epsilon}{2}]$.
+
+Then $s + \frac{\epsilon}{2} \in S$. This contradicts the fact that $s = \sup S$.
+
+Hence we conclude that $s = b$.
+
+Now we want to show that $b \in S$, i.e. $[a, b]$ has a finite subcover.
+
+Since $b \in [a, b]$, $b$ is covered an open set $O_{\lambda'}$ from the open cover $\cup_{\lambda \in \Lambda} O_\lambda$. Since $O_{\lambda'}$ is open, there exists $V_\epsilon(b) \subseteq O_{\lambda'}$.
+
+Consider $x \in S$ such that $b - \frac{\epsilon}{2} < x \leq b$. We know such an $x$ exists because $b - \frac{\epsilon}{2}$ is not an upper bound.
+
+Then $[a, x]$ has a finite subcover and $[x, b] \subseteq V_\epsilon(b) \subseteq O_{\lambda'}$. So $[a, b]$ has a finite subcover.
+
+
+#### (c) Finally, prove the theorem for an arbitrary closed and bounded set $K$.
+
+Suppose $\cup_{\lambda \in \Lambda} O_\lambda$ is an open cover of $K$.
+
+Since $K$ is bounded, $K \subseteq [-M, M]$ for some $M \in \mathbb{R}$.
+
+Since $K$ is closed, $K^c$ is open.
+
+Then $[-M, M] \subseteq (\cup_{\lambda \in \Lambda} O_\lambda) \cup K^c$.
+
+Then from part (b), $[-M, M]$ has a finite subcover $O_{\lambda_1}, ..., O_{\lambda_n}, K^c$.
+
+Then $K$ has a finite subcover $O_{\lambda_1}, ..., O_{\lambda_n}$.
 

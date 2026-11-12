@@ -243,16 +243,20 @@ Since in each step we bisect the interval, $|I_n| = \frac{1}{2^n} |I_0|$. Thus $
 
 Since $K$ is compact and $I_n$ is closed, by exercise 3.3.4, $I_n \cap K$ is compact. 
 
-By the nested compact set property 3.3.5, $\cap_{n \in \mathbb{N}} (I_n \cap K) \noteq \emptyset$. Thus there exists some $x \in K$ such that $x \in I_n$ for all $n$.
+By the nested compact set property 3.3.5, 
+
+$$\cap_{n \in \mathbb{N}} (I_n \cap K) \neq \emptyset$$
+
+Thus there exists some $x \in K$ such that $x \in I_n$ for all $n$.
 
 
 #### (c) Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Explain how this leads to the desired contradiction.
 
-Since $x \in \O_{\lambda_0}$ and $O_{\lambda_0}$ is open, there exists a neighborhood $V_\epsilon(x) \subseteq O_{\lambda_0}$.
+Since $x \in O_{\lambda_0}$ and $O_{\lambda_0}$ is open, there exists a neighborhood $V_\epsilon(x) \subseteq O_{\lambda_0}$.
 
 Since $|I_n| \to 0$, there exists some $m \in \mathbb{N}$ such that for all $n \geq m$, $|I_n| < \epsilon$. 
 
-Suppose $y \in I_n$, $n \geq m$. Since $x \in I_n$ for all $n$, we have $|y - x| < \epsilon$. Thus $y \in V_\epsilon(x)$. Hence we have have $I_n \subseteq V_\epsilon(x)$ for all $n \geq m$.
+Suppose $y \in I_n$, for some $n \geq m$. Since $x \in I_n$ for all $n$, we have $|y - x| < \epsilon$. Thus $y \in V_\epsilon(x)$. Hence we have have $I_n \subseteq V_\epsilon(x)$ for all $n \geq m$.
 
 Then we have for all $n \geq m$,
 
@@ -329,7 +333,7 @@ Consider the open cover $\cup_{n \in \mathbb{N}} V_{1/2}(n)$. It is an open cove
 
 #### (b) $\mathbb{Q} \cap [0, 1]$
 
-Let $a = \frac{\sqrt{2}}{2}$. Consider the open cover $\cup_{n \in \mathbb{N} (-1, a - \frac{1}{n}) \cup (a + \frac{1}{n}, 2)$. 
+Let $a = \frac{\sqrt{2}}{2}$. Consider the open cover $\cup_{n \in \mathbb{N}} (-1, a - \frac{1}{n}) \cup (a + \frac{1}{n}, 2)$. 
 
 For any $x \in \mathbb{Q} \cap [0, 1]$, $x < a$ or $x > a$. There exists $n \in \mathbb{N}$ such that $x < a - \frac{1}{n}$ or $x > a + \frac{1}{n}$. Thus it is an open cover of $\mathbb{Q} \cap [0, 1]$.
 
@@ -343,4 +347,21 @@ Consider the partial sum $s_n = 1 + 1/2^2 + ... + 1/n^2$ and the open cover $\cu
 The partial sum is strictly increasing. For any $s_n$ in the set, we have $s_n \in (0, s_{n+1})$. Then $\cup_{n \in \mathbb{N}} (0, s_n)$ is an open cover of the set.
 
 Note that this open cover has no finite subcover. Consider $(0, s_{\lambda_1}), ..., (0, s_{\lambda_n})$. Take $M = \max \\{s_{\lambda_1}, ..., s_{\lambda_n}\\}$. There exists $s_k$ such that $s_k > M$ which is outside the subcover.
+
+
+
+### 3.3.12 Using the concept of open covers (and explicitly avoiding the Bolzano-Weierstrass Theorem), prove that every bounded infinite set has a limit point.
+
+Suppose $A$ is a bounded infinite set. Then $A \subseteq [-M, M]$ for some $M \in \mathbb{R}$.
+
+Assume towards contradiction that $A$ has no limit points. For any $x \in [-M, M]$, there exists $\epsilon_x > 0$ where $V_{\epsilon_x}(x) \cap A \subseteq \\{x\\}$. Note that $\epsilon$ depends on $x$.
+
+Consider the open cover $\cup_{x \in [-M, M]} V_{\epsilon_x}(x)$. Since $A \subseteq [-M, M]$, it also covers $A$.
+
+Since $[-M, M]$ is compact, by the Heine-Borel theorem 3.3.8, there exists a finite subcover $V_{\epsilon_1}(x_1), ..., V_{\epsilon_n}(x_n)$. Then $A \subseteq \cup_{k=1, ..., n} V_{\epsilon_k}(x_k)$.
+
+By hypothesis, each $V_{\epsilon_k}(x_k)$ contains at most one point of $A$, namely $x_k$ if $x_k \in A$. However, this implies that $A$ contains at most $n$ points. This contradicts the fact that $A$ is an infinite set.
+
+Hence we conclude that $A$ has a limit point.
+
 

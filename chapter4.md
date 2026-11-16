@@ -2,7 +2,7 @@ Understanding Analysis - Chapter 4 <br>
 Functional Limits and Continuity
 ================
 Rosie Sun <br>
-2026-11-02
+2026-11-15
 
 
 # 4.2 Functional Limits
@@ -21,7 +21,11 @@ Rosie Sun <br>
 
 Let $\epsilon > 0$. Let $c \in \mathbb{R}$. We want to show that $f(x) = x^3$ is continuous at $c$.
 
-Let $\delta = \min \\{1, \frac{\epsilon}{3c^2 + 3|c| + 1}\\}$. Suppose $|x - c| < \delta$.
+Let 
+
+$$\delta = \min \\{1, \frac{\epsilon}{3c^2 + 3|c| + 1}\\}$$ 
+
+Suppose $|x - c| < \delta$.
 
 We have 
 
@@ -33,7 +37,7 @@ Note that by reverse triangle inequality, $|x| - |c| \leq |x - c| < 1$. So $|x| 
 
 $$
 \begin{aligned}
-|(x^2 + xc + c^2)|
+|x^2 + xc + c^2|
     &= |x (x + c) + c^2| \\
     &\leq |x (x + c)| + |c^2| \\
     &= |x| |x + c| + c^2 \\
@@ -121,7 +125,7 @@ $$|x_n - y_n| = |\frac{1}{n + 2} - \frac{1}{n + 1}| \to 0$$
 
 but
 
-$$|f(\frac{1}{n + 2}) - f(\frac{1}{n + 1})| = |(n + 2) - (n + 1)| = 1$$
+$$\left| f(\frac{1}{n + 2}) - f(\frac{1}{n + 1}) \right| = |(n + 2) - (n + 1)| = 1$$
 
 Thus $|f(x_n) - f(y_n)| \geq 1$ for all $n \in \mathbb{N}$. 
 
@@ -141,7 +145,7 @@ Then we have
 $$
 \begin{aligned}
 |g(x) - g(y)| &= |\sqrt{x^2 + 1} - \sqrt{y^2 + 1}| \\
-    &= |\frac{(\sqrt{x^2 + 1} - \sqrt{y^2 + 1}) (\sqrt{x^2 + 1} + \sqrt{y^2 + 1}) }{\sqrt{x^2 + 1} + \sqrt{y^2 + 1}} | \\
+    &= \left| \frac{(\sqrt{x^2 + 1} - \sqrt{y^2 + 1}) (\sqrt{x^2 + 1} + \sqrt{y^2 + 1}) }{\sqrt{x^2 + 1} + \sqrt{y^2 + 1}} \right| \\
     &= \frac{|(x^2 + 1) - (y^2 + 1)|}{\sqrt{x^2 + 1} + \sqrt{y^2 + 1}} \\
     &\leq \frac{|(x^2 + 1) - (y^2 + 1)|}{2} \\ 
     &= \frac{|x^2 - y^2|}{2} \\
@@ -215,7 +219,7 @@ Consider $f(x) = \sqrt{x}$ on $A = [0, 1]$. Since $\sqrt{x}$ is continuous, it i
 
 Take $y = 0$, we have
 
-$$|\frac{f(x) - f(0)}{x - 0}| = \frac{\sqrt{x}}{x} = \frac{1}{\sqrt{x}}$$
+$$\left| \frac{f(x) - f(0)}{x - 0} \right| = \frac{\sqrt{x}}{x} = \frac{1}{\sqrt{x}}$$
 
 Then
 

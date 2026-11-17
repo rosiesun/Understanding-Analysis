@@ -7,6 +7,107 @@ Rosie Sun <br>
 
 # 3.2 Open and Closed Sets
 
+### Definition 3.2.1
+A set $O \subseteq \mathbb{R}$ is open if for all points $a \in O$ there exists an $\epsilon$-neighborhood $V_\epsilon(a) \subseteq O$.
+
+
+### Theorem 3.2.3
+(i) The union of an arbitrary collection of open sets is open.
+
+(ii) The intersection of a finite collection of open sets is open.
+
+Proof:
+
+(i) 
+
+Let $\\{O_\lambda: \lambda \in \Lambda\\}$ be a collection of open sets and let $O = \cup_{\lambda \in \Lambda} O_\lambda$. 
+
+Let $a$ be an arbitrary element of $O$. $a \in O$ implies that $a$ is an element of at least one particular $O_{\lambda'}$. Because $O_{\lambda'}$ is open, by Definition 3.2.1 there exists $V_\epsilon(a) \subseteq O_{\lambda'}$. The fact that $O_{\lambda'} \subseteq O$ allows us to conclude that $V_\epsilon(a) \subseteq O$. 
+
+(ii)
+
+Let $\\{O_1, O_2, ..., O_N\\}$ be a finite collection of open sets. 
+
+If $a \in \cap_{k=1}^N O_k$, then $a$ is an element of each of the open sets. By Definition 3.2.1, for each $k = 1, ..., N$, there exists $V_{\epsilon_k}(a) \subseteq O_k$. Let $\epsilon = \min \\{\epsilon_1, ..., \epsilon_N \\}$. It follows that $V_\epsilon(a) \subseteq V_{\epsilon_k}(a)$ for all $k$, and hence $V_\epsilon(a) \subseteq \cap_{k=1}^N O_k$.
+
+
+### Definition 3.2.4
+A point $x$ is a limit point of a set $A$ if every $\epsilon$-neighborhood $V_\epsilon(x)$ of $x$ intersects the set $A$ at some point other than $x$.
+
+
+### Theorem 3.2.5
+A point $x$ is a limit point of a set $A$ if and only if $x = \lim a_n$ for some sequence $(a_n)$ contained in $A$ satisfying $a_n \neq x$ for all $n \in \mathbb{N}$.
+
+Proof:
+
+$\Rightarrow$
+
+Assume $x$ is a limit point of $A$. 
+
+Consider $V_{1/n}(x)$. By Definition 3.2.4, every neighborhood of $x$ intersects $A$ in some point other than $x$. This means that, for each $n \in \mathbb{N}$, we can pick a point 
+
+$$a_n \in V_{1/n}(x) \bigcap A$$
+
+with the stipulation that $a_n \neq x$.
+
+Given an arbitrary $\epsilon > 0$, choose $N$ such that $1/N < \epsilon$. It follows that $|a_n - x| < \epsilon$ for all $n \geq N$. Thus $(a_n) \to x$.
+
+$\Leftarrow$
+
+Assume $\lim a_n = x$ where $a_n \in A$ and $a_n \neq x$. 
+
+Let $V_\epsilon(x)$ be an arbitrary neighborhood. The definition of convergence states that there exists a term $a_N$ in the sequence satisfying $a_N \in V_\epsilon(x)$. We have $a_N \in A$ and $a_N \neq x$. Thus $x$ is a limit point.
+
+
+### Definition 3.2.6
+A point $a \in A$ is an isolated point of $A$ if it is not a limit point of $A$.
+
+
+### Definition 3.2.7
+A set $F \subseteq \mathbb{R}$ is closed if it contains its limit points.
+
+
+### Theorem 3.2.8
+A set $F \subseteq \mathbb{R}$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+
+
+### Theorem 3.2.10
+For every $y \in \mathbb{R}$, there exists a sequence of rational numbers that converges to $y$.
+
+
+### Definition 3.2.11
+Given a set $A \subseteq \mathbb{R}$, let $L$ be the set of all limit points of $A$. The closure of $A$ is defined to be $\overline{A} = A \cup L$.
+
+
+### Theorem 3.2.12
+For any $A \subseteq \mathbb{R}$, the closure $\overline{A}$ is a closed set and is the smallest closed set containing $A$.
+
+
+### Theorem 3.2.13
+A set $O$ is open if and only if $O^c$ is closed. Likewise, a set $F$ is closed if and only if $F^c$ is open.
+
+Proof:
+
+Given an open set $O \subseteq \mathbb{R}$, we will first prove that $O^c$ is a closed set.
+
+To prove $O^c$ is closed, we need to show that it contains all of its limit points. 
+
+If $x$ is a limit point of $O^c$, then every neighborhood of $x$ contains some points of $O^c$. $x$ cannot be in the open set $O$, because $x \in O$ would imply that there exists a neighborhood $V_\epsilon(x) \subseteq O$. Thus $x \in O^c$.
+
+For the converse statement, assume $O^c$ is closed and argue that $O$ is open.
+
+Given an arbitrary point $x \in O$, we must produce a neighborhood $V_\epsilon(x) \subseteq O$. Because $O^c$ is closed, $x$ is not a limit point of $O^c$ (otherwise $x$ would be contained in $O^c$). Looking at the negation of the limit point definition, there must be some neighborhood $V_\epsilon(x)$ that does not intersect $O^c$, which means that $V_\epsilon(x) \subseteq O$, which is what we needed to show.
+
+
+### Theorem 3.2.14
+(i) The union of a finite collection of closed sets is closed.
+
+(ii) The intersection of an arbitrary collection of closed sets is closed.
+
+
+
+## Exercises
+
 ### 3.2.2 Let $A = \\{(-1)^n + 2/n: n = 1, 2, 3, ...\\}$ and $B = \\{x \in \mathbb{Q}: 0 < x < 1\\}$.
 
 #### (a) What are the limit points?
@@ -62,6 +163,67 @@ The set is closed. The series $\sum 1/n$ diverges so it does not have any limit 
 
 
 # 3.3 Compact Sets
+
+### Definition 3.3.1 compactness
+A set $K \subseteq \mathbb{R}$ is compact if every sequence in $K$ has a subsequence that converges to a limit that is also in $K$.
+
+
+### Definition 3.3.3
+A set $A \subseteq \mathbb{R}$ is bounded if there exists $M > 0$ such that $|a| \leq M$ for all $a \in A$.
+
+
+### Theorem 3.3.4
+A set $K \subseteq \mathbb{R}$ is compact if and only if it is closed and bounded.
+
+Proof:
+
+$\Rightarrow$
+
+Let $K$ be compact. We will first prove that $K$ must be bounded.
+
+Assume towards contradiction that $K$ is not a bounded set. Because $K$ is not bounded, there must exist an element $x_1 \in K$ satisfying $|x_1| > 1$. Likewise, there must exist $x_2 \in K$ with $|x_2| > 2$, and in general, given any $n \in \mathbb{N}$, we can produce $x_n \in K$ such that $|x_n| > n$. Because $K$ is compact, $(x_n)$ should have a convergent subsequence $(x_{n_k})$. But elements of the subsequence must satisfy $|x_{n_k}| > n_k$, and consequently $(x_{n_k})$ is unbounded. Because convergent sequences are bounded by theorem 2.3.2, we have a contradiction. Thus $K$ is a bounded set.
+
+Next we will show that $K$ is closed. 
+
+To see that $K$ contains its limit points, let $x = \lim x_n$, where $(x_n)$ is contained in $K$ and argue that $x$ must be in $K$. Because $K$ is compact, the sequence $(x_n)$ has a convergent subsequence $(x_{n_k})$, and by theorem 2.5.2, $(x_{n_k})$ converges to the same limit as the main sequence, so $\lim x_{n_k} = x$. By definition 3.3.1 $x \in K$. Thus $K$ is closed.
+
+
+### Theorem 3.3.5 nested compact set property
+If 
+
+$$K_1 \supseteq K_2 \supseteq K_3 \supseteq ... $$
+
+is a nested sequence of nonempty compact sets, then the intersection $\cap_{n=1}^\infty K_n$ is not empty.
+
+Proof:
+
+For each $n \in \mathbb{N}$, pick a point $x_n \in K_n$. 
+
+Because the compact sets are nested, it follows that the sequence $(x_n)$ is contained in $K_1$. By Definition 3.1.1 $(x_n)$ has a convergent subsequence $(x_{n_k})$ whose limit $x = \lim x_{n_k}$ is an element of $K_1$. 
+
+In fact $x$ is an element of every $K_n$ for the same reason. Given a particular $n_0 \in \mathbb{N}$, if $n \geq n_0$, the terms in the sequence $x_n$ are contained in $K_{n_0}$. Ignoring the finite number of terms for which $n_k < n_0$, the same subsequence $(x_{n_k})$ is then also contained in $K_{n_0}$. The conclusion is that $x = \lim x_{n_k}$ is an element of $K_{n_0}$. Because $n_0$ was arbitrary, $x \in \cap_{n=1}^\infty K_n$.
+
+
+### Definition 3.3.6 
+Let $A \subseteq \mathbb{R}$. An open cover for $A$ is a (possibly infinite) collection of open sets $\\{O_\lambda: \lambda \in \Lambda\\}$ whose union contains the set $A$; that is, 
+
+$$A \subseteq \bigcup_{\lambda \in \Lambda} O_\lambda$$
+
+Given an open cover for $A$, a finite subcover is a finite subcollection of open sets from the original open cover whose union still manages to completely contain $A$.
+
+
+### Theorem 3.3.8 Heine-Borel theorem
+Let $K$ be a subset of $\mathbb{R}$. All of the following statements are equivalent in the sense that any one of them implies the two others:
+
+(i) $K$ is compact
+
+(ii) $K$ is closed and bounded
+
+(iii) Every open cover for $K$ has a finite subcover.
+
+Proof:
+
+
 
 ## Exercises
 

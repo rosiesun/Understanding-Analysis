@@ -5,8 +5,90 @@ Rosie Sun <br>
 2026-10-31
 
 
+# 2.2 The Limit of a Sequence
+
+### Definition 2.2.1.
+A sequence is a function whose domain is $\mathbb{N}$.
+
+
+### Definition 2.2.3 convergence of a sequence
+A sequence $(a_n)$ converges to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \geq N$ it follows that $|a_n - a| < \epsilon$.
+
+
+### Definition 2.2.4 
+Given a real number $a \in \mathbb{R}$ and a positive number $\epsilon > 0$, the set 
+
+$$V_\epsilon(a) = \\{x \in \mathbb{R}: |x - a| < \epislon\\}$$
+
+is called the $\epsilon$-neighborhood of $a$.
+
+
+### Definition 2.2.3B convergence of a sequence, topological version
+A sequence $(a_n)$ converges to $a$ if, given any $\epsilon$-neighborhood $V_\epsilon(a)$ of $a$, there exists a point in the sequence after which all of the terms are in $V_\epsilon(a)$. In other words, every $\epsilon$-neighborhood contains all but a finite number of the terms of $(a_n)$.
+
+
+
 
 # 2.3 The Algebraic and Order Limit Theorems
+
+### Definition 2.3.1
+A sequence $(x_n)$ is bounded if there exists a number $M > 0$ such that $|x_n| \leq M$ for all $n \in \mathbb{N}$.
+
+
+### Theorem 2.3.2
+Every convergent sequence is bounded.
+
+Proof:
+
+Assume $(x_n)$ converges to a limit $l$. This means that given a particular value of $\epsilon$, say $\epsilon = 1$, we know there must exist an $N \in \mathbb{N}$ such that if $n \geq N$, then $x_n$ is in the interval $(l - 1, l + 1)$. Not knowing whether $l$ is positive or negative, we can certainly conclude that 
+
+$$|x_n| < |l| + 1$$
+
+for all $n \geq N$.
+
+We still need to worry slightly about the terms in the sequence that come before the Nth term. Because there are only a finite number of these, we let 
+
+$$M = \max \\{|x_1|, |x_2|, ..., |x_{N-1}|, |l| + 1\\}$$
+
+It follows that $|x_n| \leq M$ for all $n \in \mathbb{N}$.
+
+
+### Theorem 2.3.3 algebraic limit theorem
+Let $\lim a_n = a$ and $\lim b_n = b$. Then
+
+(i) $\lim (c a_n) = ca$ for all $c \in \mathbb{R}$
+
+(ii) $\lim (a_n + b_n) = a + b$
+
+(iii) $\lim (a_n b_n) = ab$
+
+(iv) $\lim (a_n / b_n) = a/b$ provided $b \neq 0$.
+
+Proof:
+
+(i)
+
+Consider the case where $c \neq 0$. We want to show that the sequence $(c a_n)$ converges to $ca$. Let $\epsilon$ be some arbitrary positive number. 
+
+We have 
+
+$$|c a_n - ca| = |c| ||a_n - a|$$
+
+We can choose an $N$ such that 
+
+$$|a_n - a| < \frac{\epsilon}{|c|}$$
+
+whenever $n \geq N$. Observe that for all $n \geq N$,
+
+$$|c a_n - ca| = |c| |a_n - a| < |c| \frac{\epsilon}{|c|} = \epsilon$$
+
+The case $c = 0$ reduces to showing that the constant sequence (0, 0, ...) converges to 0.
+
+
+
+
+
+## Exercises
 
 ### 2.3.1 Let $x_n \geq 0$ for all $n \in \mathbb{N}$.
 

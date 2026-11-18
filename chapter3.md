@@ -223,6 +223,29 @@ Let $K$ be a subset of $\mathbb{R}$. All of the following statements are equival
 
 Proof:
 
+Assume (iii) and we want prove it implies (ii).
+
+First we want to show that $K$ is bounded. 
+
+We construct an open cover for $K$ by defining $O_x$ to be an open interval of radius 1 around each point $x \in K$, i.e. $O_x = V_1(x)$. The open cover $\\{O_x: x \in K\\}$ then must have a finite subcover $\\{O_{x_1}, ..., O_{x_n}\\}$. Because $K$ is contained in a finite union of bounded sets, $K$ must itself be bounded.
+
+Assume towards contradiction that $K$ is not closed. 
+
+Let $(y_n)$ be a Cauchy sequence contained in $K$ with $\lim y_n = y$. Since $K$ is not closed, $y \notin K$. Then every $x \in K$ is some positive distance away from $y$. 
+
+We now construct an open cover by taking $O_x$ to be an interval of radius $|x - y|/2$ around each point $x \in K$. By hypothesis the resulting open cover $\\{O_x: x \in K\\}$ must have a finite subcover $\\{O_{x_1}, ..., O_{x_n}\\}$. 
+
+Set 
+
+$$\epsilon = \min \\{\frac{|x_k - y|}{2}: k = 1, ..., n\\}$$
+
+Because $(y_n) \to y$, we can find a term $y_N$ satisfying $|y_N - y| < \epsilon$. But such a $y_N$ must necessarily be excluded from each $O_{x_k}$, meaning that 
+
+$$y_N \notin \bigcup_{k=1}^n O_{x_k}$$
+
+Thus our supposed subcover does not actually cover all of $K$. This contradiction implies that $y \in K$, and hence $K$ is closed.
+
+
 
 
 ## Exercises

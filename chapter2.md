@@ -259,6 +259,42 @@ By 1.4.3, for $n \in \mathbb{N}$, there exists a rational number $q_n$ between t
 
 # 2.4 The Monotone Convergence Theorem and a First Look at Infinite Series
 
+### Definition 2.4.1
+A sequence $(a_n)$ is increasing if $a_n \leq a_{n+1}$ for all $n \in \mathbb{N}$ and decreasing if $a_n \geq a_{n+1}$ for all $n \in \mathbb{N}$. A sequence is monotone if it is either increasing or decreasing.
+
+
+### Theorem 2.4.2
+If a sequence is monotone and bounded, then it converges.
+
+Proof:
+
+Let $(a_n)$ be monotone and bounded. 
+
+Assume the sequence is increasing (the decreasing case is handled similarly), and consider the set of points $\\{a_n: n \in \mathbb{N}\\}$. By assumption, this set is bounded, so let $s = \sup \\{a_n: n \in \mathbb{N}\\}$. We claim that $\lim a_n = s$.
+
+Let $\epsilon > 0$. Because $s$ is the least upper bound for $\\{a_n: n \in \mathbb{N}\\}$, $s - \epsilon$ is not an upper bound, so there exists a term $a_N$ in the sequence such that $s - \epsilon < a_N$. The fact that $(a_n)$ is increasing implies that if $n \geq N$, then $a_N \leq a_n$. Hence
+
+$$s - \epsilon < a_N \leq a_n \leq s < s + \epsilon$$
+
+which implies that $|a_n - s| < \epsilon$.
+
+
+### Definition 2.4.3
+Let $(b_n)$ be a sequence. An infinite series is a formal expression of the form 
+
+$$\sum_{n=1}^\infty b_n = b_1 + b_2 + b_3 + ...$$
+
+We define the corresponding sequence of partial sums $(s_m)$ by
+
+$$s_m = b_1 + b_2 + ... + b_m$$
+
+and say that the series $\sum_{n=1}^\infty b_n$ converges to $B$ if the sequence $(s_m)$ converges to $B$. In this case, we write $\sum_{n=1}^\infty b_n = B$.
+
+
+
+
+## Exercises
+
 ### 2.4.7 Let $(a_n)$ be a bounded sequence.
 
 #### (a) Prove that the sequence defined by $y_n = \sup \\{a_k: k \geq n \\}$ converges.
@@ -318,3 +354,36 @@ $$a - \epsilon \leq \liminf a_n \leq \limsup a_n \leq a + \epsilon$$
 
 Since $\epsilon$ is arbitrary, we conclude $\liminf a_n = \limsup a_n = a$.
 
+
+
+
+# 3.5 Subsequences and the Bolzano-Weierstrass Theorem
+
+### Theorem 2.5.2
+Subsequences of a convergent sequence converge to the same limit as the original sequence.
+
+Proof:
+
+Assume $(a_n) \to a$, and let $(a_{n_k})$ be a subsequence. Given $\epsilon > 0$, there exists $N$ such that $|a_n - a| < \epsilon$ whenever $n \geq N$. Because $n_k \geq k$ for all $k$, the same $N$ will suffice for the subsequence; that is, $|a_{n_k} - a| < \epsilon$ whenever $k \geq N$.
+
+
+### Theorem 2.5.5 Bolzano-Weierstrass Theorem
+Every bounded sequence contains a convergent subsequence.
+
+Proof:
+
+Let $(a_n)$ be a bounded sequence so that there exists $M > 0$ satisfying $|a_n| \leq M$ for all $n \in \mathbb{N}$. 
+
+Bisect the closed interval $[-M, M]$ into the two closed intervals $[-M, 0]$ and $[0, M]$. 
+
+Now it must be that at least one of these closed intervals contains an infinite number of the terms in the sequence $(a_n)$. Select a half for which this is the case and label that interval as $I_1$. Then, let $a_{n_1}$ be some term in the sequence $(a_n)$ satisfying $a_{n_1} \in I_1$. 
+
+Next, we bisect $I_1$ into closed intervals of equal length, and let $I_2$ be a half that again contains an infinite number of terms of the original sequence. Because there are an infinite number of terms from $(a_n)$ to choose from, we can select an $a_{n_2}$ from the original sequence with $n_2 > n_1$ and $a_{n_2} \in I_2$. In general, we construct the closed interval $I_k$ by taking a half of $I_{k-1}$ containing an infinite number of terms of $(a_n)$ and then select $n_k > n_{k-1} > ... > n_2 > n_1$ so that $a_{n_k} \in I_k$.
+
+We want to argue that $(a_{n_k})$ is a convergent subsequence. The sets
+
+$$I_1 \supseteq I_2 \supseteq I_3 \supseteq ...$$
+
+form a nested sequence of closed intervals, and by the Nested Interval Property there exists at least one point $x \in \mathbb{R}$ contained in every $I_k$. Now we want to show that $(a_{n_k}) \to x$.
+
+Let $\epsilon > 0$. By construction, the length of $I_k$ is $M (1/2)^{k-1}$ which converges to zero. Choose $N$ so that $k \geq N$ implies that the length of $I_k$ is less than $\epsilon$. Because $x$ and $a_{n_k}$ are both in $I_k$, it follows that $|a_{n_k} - x| < \epsilon$.

@@ -1,5 +1,5 @@
 Understanding Analysis - Chapter 3 <br>
-Basic Topology of \mathbb{R}
+Basic Topology of $\mathbb{R}$
 ================
 Rosie Sun <br>
 2026-11-01

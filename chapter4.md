@@ -7,10 +7,71 @@ Rosie Sun <br>
 
 # 4.2 Functional Limits
 
+### Definition 4.2.1 functional limit
+Let $f: A \to \mathbb{R}$, and let $c$ be a limit point of the domain $A$. We say that $\lim_{x \to c} f(x) = L$ provided that, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - L| < \epsilon$.
 
+
+### Definition 4.2.1B functional limit: topological version
+Let $c$ be a limit point of the domain of $f: A \to \mathbb{R}$. We say $\lim_{x \to c} f(x) = L$ provided that, for every $\epsilon$-neighborhood $V_\epsilon(L)$ of $L$, there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ with the property that for all $x \in V_\delta(c)$ different from $c$ (with $x \in A$) it follows that $f(x) \in V_\epsilon(L)$.
+
+
+### Theorem 4.2.3 sequential criterion for functional limits
+Given a function $f: A \to \mathbb{R}$ and a limit point $c$ of $A$, the following two statements are equivalent:
+
+(i) $\lim_{x \to c} f(x) = L$
+
+(ii) For all sequences $(x_n) \subseteq A$ satisfying $x_n \neq c$ and $(x_n) \to c$, it follows that $f(x_n) \to L$.
+
+Proof:
+
+$\Rightarrow$
+
+Assume that $\lim_{x \to c} f(x) = L$. 
+
+Consider an arbitrary sequence $(x_n)$, which converges to $c$ and satisfies $x_n \neq c$. We want to show that $f(x_n)$ converges to $L$. 
+
+Let $\epsilon > 0$. 
+
+Since $\lim_{x \to c} f(x) = L$, there exists $V_\delta(c)$ with the property that all $x \in V_\delta(c)$ different from $c$ satisfy $f(x) \in V_\epsilon(L)$. 
+
+Since $(x_n) \to c$, there exists $N \in \mathbb{N}$ such that $x_n \in V_\delta(c)$ for $n \geq N$. Then $f(x_n) \in V_\epsilon(L)$ for $n \geq N$. Thus $f(x_n) \to L$.
+
+$\Leftarrow$
+
+Assume that for all sequences $(x_n) \subseteq A$ satisfying $x_n \neq c$ and $(x_n) \to c$, it follows that $f(x_n) \to L$.
+
+Assume towards contradiction that $\lim_{x \to c} f(x) \neq L$.
+
+There exists some $\epsilon > 0$ such that, for all $\delta > 0$, there is some $x \in V_\delta(c)$ with $x \neq c$ and $f(x) \notin V_\epsilon(L)$.
+
+Consider $\delta_n = 1/n$. Then for each $n \in \mathbb{N}$ we can pick $x_n \in V_{1/n}(c)$ with $x_n \neq c$ and $f(x_n) \notin V_\epsilon(L)$. 
+
+Note that the sequence $(x_n) \to c$. By hypothesis $f(x_n) \to L$, which is a contradiction.
+
+Hence we conclude that $\lim_{x \to c} f(x) = c$.
+
+
+### Corollary 4.2.4 algebraic limit theorem for functional limits
+Let $f$ and be functions defined on a domain $A \subseteq \mathbb{R}$, and assume $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ for some limit point $c$ of $A$. Then
+
+(i) $\lim_{x \to c} k f(x) = kL$ for all $k \in \mathbb{R}$
+
+(ii) $\lim_{x \to c} (f(x) + g(x)) = L + M$
+
+(iii) $\lim_{x \to c} (f(x) g(x)) = LM$
+
+(iv) $\lim_{x \to c} f(x)/g(x) = L/M$ provided $M \neq 0$.
+
+
+
+
+----------------------------------------------------------------------------
 # 4.3 Continuous Functions
 
 
+
+
+----------------------------------------------------------------------------
 # 4.4 Continuous Functions on Compact Sets
 
 ## Exercises

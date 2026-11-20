@@ -252,7 +252,7 @@ Thus $0 < a_n < 1$ for all $n \geq N$. This contradicts the hypothesis that ever
 
 The statement is false. 
 
-By 1.4.3, for $n \in \mathbb{N}$, there exists a rational number $q_n$ between two real numbers $\sqrt{2} < q_n < \sqft{2} + \frac{1}{n}$. Thus $(q_n) \to \sqft{2}$, but $\sqrt{2}$ is not rational.
+By 1.4.3, for $n \in \mathbb{N}$, there exists a rational number $q_n$ between two real numbers $\sqrt{2} < q_n < \sqrt{2} + \frac{1}{n}$. Thus $(q_n) \to \sqrt{2}$, but $\sqrt{2}$ is not rational.
 
 
 

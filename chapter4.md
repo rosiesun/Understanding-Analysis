@@ -63,10 +63,29 @@ Let $f$ and be functions defined on a domain $A \subseteq \mathbb{R}$, and assum
 (iv) $\lim_{x \to c} f(x)/g(x) = L/M$ provided $M \neq 0$.
 
 
+### Corollary 4.2.5 divergence criterion for functional limits
+Let $f$ be a function defined on $A$, and let $c$ be a limit point of $A$. If there exist two sequences $(x_n)$ and $(y_n)$ in $A$ with $x_n \neq c$ and $y_n \neq c$ and 
+
+$$\lim x_n = \lim y_n = c$$ 
+
+but 
+
+$$\lim f(x_n) \neq \lim f(y_n)$$
+
+then we can conclude that the functional limit $\lim_{x \to c} f(x)$ does not exist.
+
+
 
 
 ----------------------------------------------------------------------------
 # 4.3 Continuous Functions
+
+### Definition 4.3.1 continuity
+A function $f: A \to \mathbb{R}$ is continuous at a point $c \in A$ if, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $|x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - f(c)| < \epsilon$. If $f$ is continuous at every point in the domain $A$, then we say that $f$ is continuous on $A$.
+
+
+### Corollary 4.3.3 criterion for discontinuity
+Let $f: A \to \mathbb{R}$, and let $c \in A$ be a limit point of $A$. If there exists a sequence $(x_n) \subseteq A$ where $(x_n) \to c$ but such that $f(x_n)$ does not converge to $f(c)$, we may conclude that $f$ is not continuous at $c$.
 
 
 
